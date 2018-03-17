@@ -3,25 +3,25 @@ package main;
 public class Weapon extends Equipment {
 	private int physicalMin;
 	private int physicalMax;
-	private int elementalMin;
-	private int elementalMax;
+	private int magicMin;
+	private int magicMax;
 	
 	public Weapon(String name, int itemLevel, int physicalMin, int physicalMax,
-			      int elementalMin, int elementalMax) {
+			      int magicMin, int magicMax) {
 		super(name, itemLevel);
 		physicalMin = physicalMin;
 		physicalMax = physicalMin;
-		elementalMin = elementalMin;
-		elementalMax = elementalMax;
+		magicMin = magicMin;
+		magicMax = magicMax;
 	}
 	
 	public Weapon(String name, int itemLevel, int physicalMin, int physicalMax,
-		      int elementalMin, int elementalMax, boolean legendary) {
+		      int magicMin, int magicMax, boolean legendary) {
 	super(name, itemLevel, legendary);
 	physicalMin = physicalMin;
 	physicalMax = physicalMin;
-	elementalMin = elementalMin;
-	elementalMax = elementalMax;
+	magicMin = magicMin;
+	magicMax = magicMax;
 }
 
 	/**
@@ -39,17 +39,17 @@ public class Weapon extends Equipment {
 	}
 
 	/**
-	 * @return the elementalMin
+	 * @return the magicMin
 	 */
 	public int getElementalMin() {
-		return elementalMin;
+		return magicMin;
 	}
 
 	/**
-	 * @return the elementalMax
+	 * @return the magicMax
 	 */
 	public int getElementalMax() {
-		return elementalMax;
+		return magicMax;
 	}
 	
 }

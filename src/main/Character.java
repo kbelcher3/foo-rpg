@@ -1,10 +1,17 @@
 package main;
 
+import java.util.ArrayList;
+
 public class Character {
-	private String characterClass;
-	private final String name;
+	protected static final int BASE_LEVEL = 1;
+	protected static final int BASE_EXP = 0;
+	protected static final int MAX_LEVEL = 100;
+	
+	protected String characterClass;
+	private final String characterName;
 	private int health;
 	private int mana;
+	private int stamina;
 	private int strength;
 	private int dexterity;
 	private int intelligence;
@@ -14,6 +21,7 @@ public class Character {
 	private double critMult;
 	private int level;
 	private int exp;
+	protected ArrayList skills;
 	
 	/**
 	 * @param health
@@ -27,13 +35,14 @@ public class Character {
 	 * @param critMult
 	 * @param level
 	 * @param exp
+	 * @param skills
 	 */
-	public Character(String characterClass, String name, int health, int mana, int strength, int dexterity, int intelligence, double attackSpeed,
-			double castSpeed, double critChance, double critMult, int level, int exp) {
-		this.characterClass = characterClass;
-		this.name = name;
+	public Character(String name, int health, int mana, int stamina, int strength, int dexterity, int intelligence, double attackSpeed,
+					 double castSpeed, double critChance, double critMult) {
+		this.characterName = name;
 		this.health = health;
 		this.mana = mana;
+		this.stamina = stamina;
 		this.strength = strength;
 		this.dexterity = dexterity;
 		this.intelligence = intelligence;
@@ -41,15 +50,51 @@ public class Character {
 		this.castSpeed = castSpeed;
 		this.critChance = critChance;
 		this.critMult = critMult;
-		this.level = level;
-		this.exp = exp;
+		this.level = this.BASE_LEVEL;
+		this.exp = this.BASE_EXP;
+		this.skills = new ArrayList<Skill>();
+	}
+
+	/**
+	 * @return the baseExp
+	 */
+	public static int getBaseExp() {
+		return BASE_EXP;
+	}
+
+	/**
+	 * @return the baseLevel
+	 */
+	public static int getBaseLevel() {
+		return BASE_LEVEL;
+	}
+
+	/**
+	 * @return the maxLevel
+	 */
+	public static int getMaxLevel() {
+		return MAX_LEVEL;
+	}
+
+	/**
+	 * @return the characterName
+	 */
+	public String getCharacterName() {
+		return characterName;
+	}
+
+	/**
+	 * @param skills the skills to set
+	 */
+	public void setSkills(ArrayList skills) {
+		this.skills = skills;
 	}
 
 	/**
 	 * @return the name
 	 */
 	public String getName() {
-		return name;
+		return characterName;
 	}
 
 	/**
@@ -92,6 +137,20 @@ public class Character {
 	 */
 	public void setMana(int mana) {
 		this.mana = mana;
+	}
+
+	/**
+	 * @return the stamina
+	 */
+	public int getStamina() {
+		return stamina;
+	}
+
+	/**
+	 * @param stamina the stamina to set
+	 */
+	public void setStamina(int stamina) {
+		this.stamina = stamina;
 	}
 
 	/**
@@ -218,6 +277,13 @@ public class Character {
 	 */
 	public void setExp(int exp) {
 		this.exp = exp;
+	}
+
+	/**
+	 * @return the skills
+	 */
+	public ArrayList getSkills() {
+		return skills;
 	}
 	
 	
